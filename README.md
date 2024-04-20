@@ -13,3 +13,9 @@ it.
 ## ala
 
 A fuzzy finder for alacritty themes, which is then applied on selection.
+
+## fd
+
+Another fuzzy finder thing. This time it searches the current directory for any
+subdirectories with a max depth of 3. And then changes into the selected
+directory.
