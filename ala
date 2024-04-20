@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    theme=$1
+else
+    theme=$(find ~/.config/alacritty/themes/themes -type f -name "*.toml" | sed 's#.*/##' | fzf -x --scheme path --border bottom --border-label "Choose theme for alacritty" --ansi --color="fg:#c0caf5,hl:#bb9af7" --color="fg+:#c0caf5,hl+:#7dcfff" --color=info:"#7aa2f7,prompt:#7dcfff,pointer:#7dcfff" --color="marker:#9ece6a,spinner:#9ece6a,header:#9ece6a")
+fi
+
+if [[ -z $theme ]]; then
+    exit 0
+fi
+
+alacritty_file=~/.config/alacritty/alacritty.toml
+alacritty_file_new=$alacritty_file.new
+alacritty_theme="import = [ '~/.config/alacritty/themes/themes/$theme' ]"
+
+touch $alacritty_file_new
+echo $alacritty_theme >> $alacritty_file_new
+sed '1d' $alacritty_file >> $alacritty_file_new
+
+rm $alacritty_file
+mv $alacritty_file_new $alacritty_file
+
+echo "set alacritty theme to: $theme"
