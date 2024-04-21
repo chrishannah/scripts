@@ -19,3 +19,8 @@ A fuzzy finder for alacritty themes, which is then applied on selection.
 Another fuzzy finder thing. This time it searches the current directory for any
 subdirectories with a max depth of 3. And then changes into the selected
 directory.
+
+## gt
+
+Super simple git committing. Choose from a conventional commit type, add a
+message, and then commits and pushes.
