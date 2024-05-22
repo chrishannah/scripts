@@ -12,7 +12,7 @@ if [[ $# -eq 1 ]]; then
     selected_type=$1
 else
     types=("fix" "feat" "build" "chore" "ci" "docs" "style" "refactor" "perf" "test")
-    selected_type=$(printf "%s\n" "${types[@]}" | fzf -x --scheme path --border bottom --border-label "Enter commit type" --ansi --color="fg:#c0caf5,hl:#bb9af7" --color="fg+:#c0caf5,hl+:#7dcfff" --color=info:"#7aa2f7,prompt:#7dcfff,pointer:#7dcfff" --color="marker:#9ece6a,spinner:#9ece6a,header:#9ece6a")
+    selected_type=$(printf "%s\n" "${types[@]}" | fzf -x --scheme path --border bottom --border-label "Enter commit type" --ansi)
 fi
 
 if [[ -z $selected_type ]]; then

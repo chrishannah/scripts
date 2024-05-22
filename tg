@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Developer ~/PycharmProjects ~/WebstormProjects ~/.config -mindepth 1 -maxdepth 1 -type d | fzf -x --scheme path --border bottom --border-label "Search for directory to open in tmux" --ansi --color="fg:#c0caf5,hl:#bb9af7" --color="fg+:#c0caf5,hl+:#7dcfff" --color=info:"#7aa2f7,prompt:#7dcfff,pointer:#7dcfff" --color="marker:#9ece6a,spinner:#9ece6a,header:#9ece6a")
+    selected=$(find ~/Developer ~/PycharmProjects ~/WebstormProjects ~/.config -mindepth 1 -maxdepth 1 -type d | fzf -x --scheme path --border bottom --border-label "Search for directory to open in tmux" --ansi)
 fi
 
 if [[ -z $selected ]]; then

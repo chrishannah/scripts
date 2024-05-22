@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+curr_dir=$(pwd)
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find $curr_dir -mindepth 1 -maxdepth 3 -type f | fzf -x\
+        --scheme path \
+        --border bottom \
+        --border-label "Open file in neovim" \
+        --preview "bat --color=always {}"
+    )
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+nvim $selected
+$SHELL
